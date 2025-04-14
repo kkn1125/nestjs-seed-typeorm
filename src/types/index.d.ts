@@ -2,7 +2,7 @@ import { DecodedIdToken } from 'firebase-admin/lib/auth/token-verifier';
 
 export declare global {
   //
-  type CommonConfigType = 'database' | 'firebase';
+  type CommonConfigType = 'database' | 'firebase' | 'secret';
   interface LoginUserData extends DecodedIdToken {
     pk: number;
   }

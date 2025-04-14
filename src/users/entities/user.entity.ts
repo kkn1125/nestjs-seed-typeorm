@@ -5,9 +5,11 @@ import {
   DeleteDateColumn,
   Entity,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { UserSecret } from './user.secret.entity';
 
 @Entity()
 export class User {
@@ -31,6 +33,9 @@ export class User {
 
   @DeleteDateColumn({ type: 'datetime', comment: '삭제 일시', nullable: true })
   deletedAt: Date | null;
+
+  @OneToOne(() => UserSecret, (userSecret) => userSecret.user)
+  userSecret: UserSecret;
 
   @OneToMany(() => Board, (board) => board.user)
   boards: Board[];

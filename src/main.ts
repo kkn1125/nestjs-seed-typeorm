@@ -5,6 +5,8 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.setGlobalPrefix('api');
+
   const config = new DocumentBuilder()
     .setTitle('API DOCS')
     .setDescription('API 문서입니다.<br>작성자: devkimson')

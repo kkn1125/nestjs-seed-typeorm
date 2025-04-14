@@ -21,3 +21,5 @@ export const CLIENT_EMAIL = process.env.CLIENT_EMAIL as string;
 export const PRIVATE_KEY = process.env.PRIVATE_KEY as string;
 export const PROJECT_ID = process.env.PROJECT_ID as string;
 export const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY as string;
+
+export const SECRET_PASSWORD = process.env.SECRET_PASSWORD as string;

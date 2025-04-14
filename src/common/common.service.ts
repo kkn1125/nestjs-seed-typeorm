@@ -2,12 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService, ConfigType } from '@nestjs/config';
 import { DatabaseOption } from './database.conf';
 import { FirebaseOption } from './firebase.conf';
+import { SecretOption } from './secret.conf';
 
 type Return<T> = T extends 'database'
   ? ConfigType<DatabaseOption>
   : T extends 'firebase'
     ? ConfigType<FirebaseOption>
-    : never;
+    : T extends 'secret'
+      ? ConfigType<SecretOption>
+      : never;
 
 @Injectable()
 export class CommonService {

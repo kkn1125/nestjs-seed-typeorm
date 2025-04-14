@@ -1,9 +1,10 @@
 import { Global, Module } from '@nestjs/common';
-import { CommonService } from './common.service';
 import { ConfigModule } from '@nestjs/config';
+import { CommonService } from './common.service';
 import databaseConf from './database.conf';
 import { RUN_MODE } from './environments';
 import firebaseConf from './firebase.conf';
+import secretConf from './secret.conf';
 
 @Global()
 @Module({
@@ -11,7 +12,7 @@ import firebaseConf from './firebase.conf';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: ['.env', `.env.${RUN_MODE}`],
-      load: [firebaseConf, databaseConf],
+      load: [firebaseConf, databaseConf, secretConf],
     }),
   ],
   providers: [CommonService],
